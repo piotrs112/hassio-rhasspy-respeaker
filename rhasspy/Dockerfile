@@ -3,7 +3,8 @@ LABEL maintainer="Michael Hansen <mike@rhasspy.org>"
 
 ENV LANG C.UTF-8
 
-RUN apt-get update \
+RUN mkdir -p /var/cache/apt/amd64/archives/partial && \
+    apt-get update \
     && apt-get install -y --no-install-recommends \
       git \
       alsa-utils \
