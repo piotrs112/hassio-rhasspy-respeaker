@@ -10,8 +10,8 @@ RUN mkdir -p /var/cache/apt/amd64/archives/partial && \
       alsa-utils \
       dkms \
       i2c-tools \
-      libasound2-plugins \
-    && git clone "https://github.com/respeaker/seeed-voicecard" \
+      libasound2-plugins
+RUN git clone "https://github.com/respeaker/seeed-voicecard" \
     && cd seeed-voicecard \
     && chmod a+x ./install.sh \
     && rm -rf .git \
