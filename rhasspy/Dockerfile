@@ -3,9 +3,10 @@ LABEL maintainer="Michael Hansen <mike@rhasspy.org>"
 
 ENV LANG C.UTF-8
 
-RUN mkdir -p /var/cache/apt/amd64/archives/partial
-    
-RUN apt-get install -y --no-install-recommends \
+RUN mkdir -p /var/cache/apt/armv7/archives/partial && \
+	touch /var/cache/apt/armv7/archives/lock && \
+	chmod 640 /var/cache/apt/armv7/archives/lock 
+RUN apt-get -o Debug::pkgProblemResolver=true -o Debug::Acquire::http=true -f install -y --no-install-recommends \
       git \
       alsa-utils \
       dkms \
