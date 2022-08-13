@@ -3,8 +3,9 @@ LABEL maintainer="Michael Hansen <mike@rhasspy.org>"
 
 ENV LANG C.UTF-8
 
-RUN mkdir -p /var/cache/apt/amd64/archives/partial && \
-        apt-get install -y apt-transport-https
+RUN mkdir -p /var/cache/apt/amd64/archives/partial
+RUN apt-get update
+RUN apt-get install -y apt-transport-https
     
 RUN apt-get install -y --no-install-recommends \
       git \
